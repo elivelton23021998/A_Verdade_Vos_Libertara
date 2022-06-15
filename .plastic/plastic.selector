@@ -1,0 +1,4 @@
+repository "A Verdade Vos Libertará@Jewels_Game_Studio@cloud"
+  path "/"
+    br "/main"
+    co "/main"
