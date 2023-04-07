@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,8 @@ public class EventTrigger : MonoBehaviour
 
 	IEnumerator ReiniciarJogo()
 	{
-		yield return new WaitForSeconds(125f);
+		//tempo dos creditos
+		yield return new WaitForSeconds(110f);
 		reiniciarJogo.Invoke();
 	}
 

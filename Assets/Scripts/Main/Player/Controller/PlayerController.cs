@@ -726,7 +726,9 @@ public class PlayerController : Singleton<PlayerController>
             yield return new WaitForSeconds(2);
 
             tentarNovamente.SetActive(true);
+            Cursor.visible = (true);
             Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
 
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
