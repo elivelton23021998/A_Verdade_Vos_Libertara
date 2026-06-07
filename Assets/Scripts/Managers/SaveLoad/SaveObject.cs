@@ -28,10 +28,10 @@ public class SaveObject : MonoBehaviour, ISaveable {
                 {"rigidbody_kinematic", GetComponent<Rigidbody>().isKinematic},
                 {"rigidbody_gravity", GetComponent<Rigidbody>().useGravity},
                 {"rigidbody_mass", GetComponent<Rigidbody>().mass},
-                {"rigidbody_drag", GetComponent<Rigidbody>().drag},
-                {"rigidbody_angdrag", GetComponent<Rigidbody>().angularDrag},
+                {"rigidbody_drag", GetComponent<Rigidbody>().linearDamping},
+                {"rigidbody_angdrag", GetComponent<Rigidbody>().angularDamping},
                 {"rigidbody_freeze", GetComponent<Rigidbody>().freezeRotation},
-                {"rigidbody_velocity", GetComponent<Rigidbody>().velocity},
+                {"rigidbody_velocity", GetComponent<Rigidbody>().linearVelocity},
             };
         }
         else if (saveType == SaveType.Position)
@@ -84,10 +84,10 @@ public class SaveObject : MonoBehaviour, ISaveable {
                 GetComponent<Rigidbody>().isKinematic = token["rigidbody_kinematic"].ToObject<bool>();
                 GetComponent<Rigidbody>().useGravity = token["rigidbody_gravity"].ToObject<bool>();
                 GetComponent<Rigidbody>().mass = token["rigidbody_mass"].ToObject<float>();
-                GetComponent<Rigidbody>().drag = token["rigidbody_drag"].ToObject<float>();
-                GetComponent<Rigidbody>().angularDrag = token["rigidbody_angdrag"].ToObject<float>();
+                GetComponent<Rigidbody>().linearDamping = token["rigidbody_drag"].ToObject<float>();
+                GetComponent<Rigidbody>().angularDamping = token["rigidbody_angdrag"].ToObject<float>();
                 GetComponent<Rigidbody>().freezeRotation = token["rigidbody_freeze"].ToObject<bool>();
-                GetComponent<Rigidbody>().velocity = token["rigidbody_velocity"].ToObject<Vector3>();
+                GetComponent<Rigidbody>().linearVelocity = token["rigidbody_velocity"].ToObject<Vector3>();
             }
             else if (saveType == SaveType.Position)
             {

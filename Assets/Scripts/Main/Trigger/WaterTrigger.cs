@@ -136,7 +136,7 @@ public class WaterTrigger : MonoBehaviour {
                 }
                 variable.Foam.transform.position = foamPos;
 
-                float speed = variable.FoamObject.GetComponent<Rigidbody>().velocity.magnitude;
+                float speed = variable.FoamObject.GetComponent<Rigidbody>().linearVelocity.magnitude;
 
                 if (speed > foamShowSpeed)
                 {

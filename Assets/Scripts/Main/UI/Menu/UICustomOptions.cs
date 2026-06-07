@@ -199,7 +199,7 @@ public class UICustomOptions : MonoBehaviour {
             QualityLevel = QualitySettings.GetQualityLevel();
             AntialiasingDropdown.value = DDAntialiasingLevel(QualitySettings.antiAliasing);
             AnisotropicDropdown.value = (int)QualitySettings.anisotropicFiltering;
-            TextureQualityDropdown.value = DDTextureQuality(QualitySettings.masterTextureLimit);
+            TextureQualityDropdown.value = DDTextureQuality(QualitySettings.globalTextureMipmapLimit);
             BlendWeightsDropdown.value = DDBlendWeightsLevel((int)QualitySettings.skinWeights);
             VSyncDropdown.value = QualitySettings.vSyncCount;
             ShadowResolutionDropdown.value = (int)QualitySettings.shadowResolution;
@@ -321,7 +321,7 @@ public class UICustomOptions : MonoBehaviour {
         }
         if (tqChanged)
         {
-            QualitySettings.masterTextureLimit = ConvertTQLevel(TextureQualityLevel);
+            QualitySettings.globalTextureMipmapLimit = ConvertTQLevel(TextureQualityLevel);
             tqChanged = false;
         }
         if (bwChanged)

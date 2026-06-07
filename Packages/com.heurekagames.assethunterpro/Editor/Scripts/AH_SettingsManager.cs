@@ -110,49 +110,42 @@ namespace HeurekaGames.AssetHunterPRO
         #endregion
 
         #region Properties
-        [SerializeField]
         public bool AutoCreateLog
         {
             get { return ((!EditorPrefs.HasKey(PrefsAutoCreateLog) && InitialValueAutoCreateLog) || AH_Utils.IntToBool(EditorPrefs.GetInt(PrefsAutoCreateLog))); }
             internal set { EditorPrefs.SetInt(PrefsAutoCreateLog, AH_Utils.BoolToInt(value)); }
         }
 
-        [SerializeField]
         public bool AutoOpenLog
         {
             get { return ((!EditorPrefs.HasKey(PrefsAutoOpenLog) && InitialValueAutoOpenLog) || AH_Utils.IntToBool(EditorPrefs.GetInt(PrefsAutoOpenLog))); }
             internal set { EditorPrefs.SetInt(PrefsAutoOpenLog, AH_Utils.BoolToInt(value)); }
         }
 
-        [SerializeField]
         public bool AutoRefreshLog
         {
             get { return ((!EditorPrefs.HasKey(PrefsAutoRefreshLog) && InitialValueAutoRefreshLog) || AH_Utils.IntToBool(EditorPrefs.GetInt(PrefsAutoRefreshLog))); }
             internal set { EditorPrefs.SetInt(PrefsAutoRefreshLog, AH_Utils.BoolToInt(value)); }
         }
 
-        [SerializeField]
         public bool EstimateAssetSize
         {
             get { return ((!EditorPrefs.HasKey(PrefsEstimateAssetSize) && InitialValueEstimateAssetSize) || AH_Utils.IntToBool(EditorPrefs.GetInt(PrefsEstimateAssetSize))); }
             internal set { EditorPrefs.SetInt(PrefsEstimateAssetSize, AH_Utils.BoolToInt(value)); }
         }
         
-        [SerializeField]
         public bool HideButtonText
         {
             get { return ((!EditorPrefs.HasKey(PrefsHideButtonText) && InitialValueHideButtonText) || AH_Utils.IntToBool(EditorPrefs.GetInt(PrefsHideButtonText))); }
             internal set { EditorPrefs.SetInt(PrefsHideButtonText, AH_Utils.BoolToInt(value)); }
         }
 
-        [SerializeField]
         public bool IgnoreScriptFiles
         {
             get { return ((!EditorPrefs.HasKey(PrefsIgnoreScriptFiles) && InitialIgnoreScriptFiles) || AH_Utils.IntToBool(EditorPrefs.GetInt(PrefsIgnoreScriptFiles))); }
             internal set { EditorPrefs.SetInt(PrefsIgnoreScriptFiles, AH_Utils.BoolToInt(value)); }
         }
 
-        [SerializeField]
         public string UserPreferencePath
         {
             get
@@ -165,7 +158,6 @@ namespace HeurekaGames.AssetHunterPRO
             internal set { EditorPrefs.SetString(PrefsUserPrefPath, value); }
         }
 
-        [SerializeField]
         public string BuildInfoPath
         {
             get

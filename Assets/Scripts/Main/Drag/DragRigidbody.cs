@@ -259,7 +259,7 @@ public class DragRigidbody : MonoBehaviour {
 		Vector3 nextPos = playerCam.transform.position + playerAim.direction * distance;
 		Vector3 currPos = objectHeld.transform.position;
 
-        objectHeld.GetComponent<Rigidbody>().velocity = (nextPos - currPos) * DragSpeed;
+        objectHeld.GetComponent<Rigidbody>().linearVelocity = (nextPos - currPos) * DragSpeed;
 	}
 
     IEnumerator DropDistance()

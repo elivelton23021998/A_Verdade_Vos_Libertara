@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+#if UNITY_6000_0_OR_NEWER
+using UnityEditor.Build;
+#endif
 
 namespace HeurekaGames.AssetHunterPRO
 {
@@ -268,7 +271,12 @@ namespace HeurekaGames.AssetHunterPRO
                     }
                 case BuildTargetGroup.Switch:
                     {
+#if UNITY_6000_0_OR_NEWER
+                        Texture2D[] switchIcons = PlayerSettings.GetIcons(NamedBuildTarget.NintendoSwitch, IconKind.Application);
+                        return switchIcons != null ? switchIcons.ToList() : new List<Texture2D>();
+#else
                         return PlayerSettings.Switch.icons.ToList();
+#endif
                     }
                 case BuildTargetGroup.tvOS:
                     {

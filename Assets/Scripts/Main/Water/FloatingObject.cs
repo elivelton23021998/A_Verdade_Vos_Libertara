@@ -39,8 +39,8 @@ namespace WaterBuoyancy
             this.collider = this.GetComponent<Collider>();
             this.rigidbody = this.GetComponent<Rigidbody>();
 
-            this.initialDrag = this.rigidbody.drag;
-            this.initialAngularDrag = this.rigidbody.angularDrag;
+            this.initialDrag = this.rigidbody.linearDamping;
+            this.initialAngularDrag = this.rigidbody.angularDamping;
 
             if (this.calculateDensity)
             {
@@ -79,8 +79,8 @@ namespace WaterBuoyancy
 
                 submergedVolume /= this.voxels.Length; // 0 - object is fully out of the water, 1 - object is fully submerged
 
-                this.rigidbody.drag = Mathf.Lerp(this.initialDrag, this.dragInWater, submergedVolume);
-                this.rigidbody.angularDrag = Mathf.Lerp(this.initialAngularDrag, this.angularDragInWater, submergedVolume);
+                this.rigidbody.linearDamping = Mathf.Lerp(this.initialDrag, this.dragInWater, submergedVolume);
+                this.rigidbody.angularDamping = Mathf.Lerp(this.initialAngularDrag, this.angularDragInWater, submergedVolume);
             }
         }
 

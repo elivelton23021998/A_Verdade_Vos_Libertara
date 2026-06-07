@@ -58,7 +58,7 @@ public class PlayerController : Singleton<PlayerController>
     public bool sliding = false;
     private bool falling = false;
 
-    [Header("Animações da Camera")]
+    [Header("Animaï¿½ï¿½es da Camera")]
     public Animation cameraAnimations;
     [SerializeField] private string runAnimation = "CameraRun";
     [Range(0, 5)] public float runAnimSpeed;
@@ -66,14 +66,14 @@ public class PlayerController : Singleton<PlayerController>
     [Range(0, 5)] public float walkAnimSpeed;
     [SerializeField] private string idleAnimation = "CameraIdle";
 
-    [Header("Animações Braços")]
+    [Header("Animaï¿½ï¿½es Braï¿½os")]
     public Animation armsAnimations;
     [SerializeField] private string armsRunAnimation = "ArmsRun";
     [SerializeField] private string armsWalkAnimation = "ArmsWalk";
     [SerializeField] private string armsIdleAnimation = "ArmsIdle";
     public float adjustAnimSpeed = 7.0f;
 
-    [Header("Na Àgua")]
+    [Header("Na ï¿½gua")]
     public ParticleSystem waterFoam;
     [HideInInspector] public ParticleSystem emiter;
 
@@ -468,7 +468,7 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         if (state == 0)
-        { //De pé
+        { //De pï¿½
             controller.height = 2.0f;
             controller.center = new Vector3(0, 0, 0);
             fallingDamageThreshold = standFallTreshold;
@@ -554,7 +554,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         Rigidbody body = hit.collider.attachedRigidbody;
 
-        //Não mova o Rigidbody se o personagem estiver em cima dele
+        //Nï¿½o mova o Rigidbody se o personagem estiver em cima dele
         if (controller.collisionFlags == CollisionFlags.Below)
         {
             return;
@@ -567,7 +567,7 @@ public class PlayerController : Singleton<PlayerController>
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
-        body.velocity = pushDir * pushSpeed;
+        body.linearVelocity = pushDir * pushSpeed;
         //body.AddForceAtPosition(hit.controller.velocity * pushSpeed, hit.point, ForceMode.Force);
     }
 
