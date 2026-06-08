@@ -350,21 +350,8 @@ public class ExamineManager : MonoBehaviour {
 
                 if (secondExamine.examineType == InteractiveItem.ExamineType.AdvancedObject)
                 {
-                    if (secondExamine.CollidersDisable.Length > 0)
-                    {
-                        foreach (var col in secondExamine.CollidersDisable)
-                        {
-                            col.enabled = false;
-                        }
-                    }
-
-                    if (secondExamine.CollidersEnable.Length > 0)
-                    {
-                        foreach (var col in secondExamine.CollidersEnable)
-                        {
-                            col.enabled = true;
-                        }
-                    }
+                    SetCollidersEnabled(secondExamine.CollidersDisable, false);
+                    SetCollidersEnabled(secondExamine.CollidersEnable, true);
                 }
             }
             else
@@ -381,21 +368,8 @@ public class ExamineManager : MonoBehaviour {
 
                 if (secondExamine.examineType == InteractiveItem.ExamineType.AdvancedObject)
                 {
-                    if (secondExamine.CollidersDisable.Length > 0)
-                    {
-                        foreach (var col in secondExamine.CollidersDisable)
-                        {
-                            col.enabled = true;
-                        }
-                    }
-
-                    if (secondExamine.CollidersEnable.Length > 0)
-                    {
-                        foreach (var col in secondExamine.CollidersEnable)
-                        {
-                            col.enabled = false;
-                        }
-                    }
+                    SetCollidersEnabled(secondExamine.CollidersDisable, true);
+                    SetCollidersEnabled(secondExamine.CollidersEnable, false);
                 }
 
                 secondExamine = null;
@@ -511,21 +485,8 @@ public class ExamineManager : MonoBehaviour {
 
         if (firstExamine.examineType == InteractiveItem.ExamineType.AdvancedObject)
         {
-            if (firstExamine.CollidersDisable.Length > 0)
-            {
-                foreach (var col in objectHeld.GetComponent<InteractiveItem>().CollidersDisable)
-                {
-                    col.enabled = false;
-                }
-            }
-
-            if (firstExamine.CollidersEnable.Length > 0)
-            {
-                foreach (var col in objectHeld.GetComponent<InteractiveItem>().CollidersEnable)
-                {
-                    col.enabled = true;
-                }
-            }
+            SetCollidersEnabled(firstExamine.CollidersDisable, false);
+            SetCollidersEnabled(firstExamine.CollidersEnable, true);
         }
 
         foreach (Rigidbody rb in objectHeld.GetComponentsInChildren<Rigidbody>())
@@ -572,6 +533,17 @@ public class ExamineManager : MonoBehaviour {
         yield return null;
     }
     */
+
+    static void SetCollidersEnabled(Collider[] colliders, bool enabled)
+    {
+        if (colliders == null) return;
+
+        foreach (var col in colliders)
+        {
+            if (col != null)
+                col.enabled = enabled;
+        }
+    }
 
     void SetFloatingIconsVisible(bool visible)
     {
@@ -698,21 +670,8 @@ public class ExamineManager : MonoBehaviour {
 
         if (firstExamine.examineType == InteractiveItem.ExamineType.AdvancedObject)
         {
-            if (firstExamine.CollidersDisable.Length > 0)
-            {
-                foreach (var col in objectHeld.GetComponent<InteractiveItem>().CollidersDisable)
-                {
-                    col.enabled = true;
-                }
-            }
-
-            if (firstExamine.CollidersEnable.Length > 0)
-            {
-                foreach (var col in objectHeld.GetComponent<InteractiveItem>().CollidersEnable)
-                {
-                    col.enabled = false;
-                }
-            }
+            SetCollidersEnabled(firstExamine.CollidersDisable, true);
+            SetCollidersEnabled(firstExamine.CollidersEnable, false);
         }
 
         if (!isInspect)
